@@ -9,6 +9,7 @@
 <button (click)="onClick()">Cliquez ici !</button>
 <!-- (nomEvenement)="nomMethode" -->
 
-<input (keyup)="onKey($event)" /> <!-- $event : objet : l'événement ciblé -->
+<input #box (keyup)="onKey(box.value)" /> <!-- #variableLocale -->
 
-<p>{{ value }}</p>
+<p>{{ box.value }}</p> <!-- variable locale du template ex. Jean -->
+<p>{{ value }}</p> <!-- propriété value du composant ex. Bonjour Jean -->

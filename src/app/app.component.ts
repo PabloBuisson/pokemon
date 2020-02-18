@@ -31,13 +31,21 @@ export class AppComponent implements OnInit {
       console.log("Vous avez cliqué !")
     }
 
-    /* onKey(event: any) {
+    /* 
+    onKey(event: any) {
       this.value = `Bonjour ${event.target.value}`;
-    } */
+    } 
+    */
 
-  onKey(event: KeyboardEvent) {
+    /*   
+    onKey(event: KeyboardEvent) {
     this.value = `Bonjour ${(<HTMLInputElement>event.target).value}`;
-  }
+    } 
+    */
+
+    onKey(value: string) {
+      this.value = `Bonjour ${value}`;
+    }
 }
 // le code de la classe de notre composant
 // contient la logique du composant

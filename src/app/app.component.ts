@@ -16,7 +16,8 @@ export class AppComponent implements OnInit {
     // propriété privée, qui renvoit un tableau d'objet de type Pokemon
     private pokemons: Pokemon[];
     private title: string = "Liste des pokémons";
-    values = '';
+
+    private age: number = 20;
 
     ngOnInit() {
         // étape d'initiliation

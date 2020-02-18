@@ -11,9 +11,14 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
     // utiliser cameCase
 })
 export class BorderCardDirective {
+
+    private initialColor: string = '#f5f5f5'; // couleur initiale
+    private defaultColor: string = '#009688'; // couleur si l'utilisateur n'a pas fait de choix
+    private defaultHeight: number = 180; // hauteur par défaut
+
     constructor(private el: ElementRef) {
-        this.setBorder('#f5f5f5');
-        this.setHeight(180);
+        this.setBorder(this.initialColor);
+        this.setHeight(this.defaultHeight);
     }
 
     @Input('pkmnBorderCard') borderColor: string; // ++
@@ -21,12 +26,12 @@ export class BorderCardDirective {
 
     // déclenché à l'evenement mouseenter
     @HostListener('mouseenter') onMouseEnter() {
-        this.setBorder(this.borderColor || '#009688');
+        this.setBorder(this.borderColor || this.defaultColor);
         // 2ème choix si l'utilisateur ne choisit rien
     }
 
     @HostListener('mouseleave') onMouseLeave() {
-        this.setBorder('#f5f5f5');
+        this.setBorder(this.initialColor);
     }
 
     private setBorder(color: string) {

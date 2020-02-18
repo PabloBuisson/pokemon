@@ -9,16 +9,19 @@ import { POKEMONS } from './mock-pokemon'; // ++
 @Component({
     selector: 'pokemon-app', // obligatoire : donne un nom au composant
     // correspondant à <pokemon-app></pokemon-app>
-    template: `<h1>Hello {{name}}</h1>`, // obligatoire : définit le code HTML
+    template: `<h1>Liste de pokémons</h1>`, // obligatoire : définit le code HTML
 })
 export class AppComponent implements OnInit { 
-    name = 'Angular';
     // propriété privée, qui renvoit un tableau d'objet de type Pokemon
     private pokemons: Pokemon[];
 
     ngOnInit() {
         // étape d'initiliation
         this.pokemons = POKEMONS;
+    }
+
+    selectPokemon(pokemon: Pokemon) {
+        alert(`Vous avez cliqué sur ${pokemon.name}`)
     }
 }
 // le code de la classe de notre composant

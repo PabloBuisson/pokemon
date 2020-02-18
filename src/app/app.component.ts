@@ -15,6 +15,7 @@ import { POKEMONS } from './mock-pokemon'; // ++
 export class AppComponent implements OnInit { 
     // propriété privée, qui renvoit un tableau d'objet de type Pokemon
     private pokemons: Pokemon[];
+    private title: string = "Liste des pokémons"; // ++
 
     ngOnInit() {
         // étape d'initiliation

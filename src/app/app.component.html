@@ -1,15 +1,4 @@
 <h1>{{ title }}</h1>
 
-<ul>
-    <li>Bulbizarre</li>
-    <li>Salamèche</li>
-    <li>Carapuce</li>
-</ul>
-
-<button (click)="onClick()">Cliquez ici !</button>
-<!-- (nomEvenement)="nomMethode" -->
-
-<input #box (keyup)="onKey(box.value)" /> <!-- #variableLocale -->
-
-<p>{{ box.value }}</p> <!-- variable locale du template ex. Jean -->
-<p>{{ value }}</p> <!-- propriété value du composant ex. Bonjour Jean -->
+<input #box (keyup.enter)="values=box.value" (blur)="values=box.value">
+<p>{{ values }}</p>

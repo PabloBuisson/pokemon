@@ -17,8 +17,6 @@ export class AppComponent implements OnInit {
     private pokemons: Pokemon[];
     private title: string = "Liste des pokémons";
 
-    private age: number = 20;
-
     ngOnInit() {
         // étape d'initiliation
         this.pokemons = POKEMONS;

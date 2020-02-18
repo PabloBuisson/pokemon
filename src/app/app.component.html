@@ -1,3 +1,5 @@
 <h1>{{ title }}</h1>
 
-<p *ngIf="age > 18">Ceci est un message destiné aux majeurs</p>
+<ul>
+    <li *ngFor="let pokemon of pokemons">{{ pokemon.name }}</li>
+</ul>

@@ -9,7 +9,8 @@ import { POKEMONS } from './mock-pokemon'; // ++
 @Component({
     selector: 'pokemon-app', // obligatoire : donne un nom au composant
     // correspondant à <pokemon-app></pokemon-app>
-    template: `<h1>Liste de pokémons</h1>`, // obligatoire : définit le code HTML
+    templateUrl: './app/app.component.html', // chemin relatif au template
+    // par convention, template et composant sont dans le même fichier
 })
 export class AppComponent implements OnInit { 
     // propriété privée, qui renvoit un tableau d'objet de type Pokemon

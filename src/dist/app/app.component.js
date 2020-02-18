@@ -7,17 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-// import { nom élément } from 'nom paquet source'
-// import { Component } obligatoire
+var mock_pokemon_1 = require("./mock-pokemon"); // ++
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.name = 'Angular';
     }
+    AppComponent.prototype.ngOnInit = function () {
+        // étape d'initiliation
+        this.pokemons = mock_pokemon_1.POKEMONS;
+    };
+    AppComponent.prototype.selectPokemon = function (pokemon) {
+        alert("Vous avez cliqu\u00E9 sur " + pokemon.name);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'pokemon-app',
             // correspondant à <pokemon-app></pokemon-app>
-            template: "<h1>Hello {{name}}</h1>",
+            templateUrl: './app/app.component.html',
         })
     ], AppComponent);
     return AppComponent;

@@ -23,15 +23,18 @@ export class BorderCardDirective {
 
     @Input('pkmnBorderCard') borderColor: string; // ++
     // @Input('nomDirective) alias;
+    @Input() userHeight: number; // add new input
 
     // déclenché à l'evenement mouseenter
     @HostListener('mouseenter') onMouseEnter() {
         this.setBorder(this.borderColor || this.defaultColor);
         // 2ème choix si l'utilisateur ne choisit rien
+        this.setHeight(this.userHeight || this.defaultHeight);
     }
 
     @HostListener('mouseleave') onMouseLeave() {
         this.setBorder(this.initialColor);
+        this.setHeight(this.defaultHeight);
     }
 
     private setBorder(color: string) {

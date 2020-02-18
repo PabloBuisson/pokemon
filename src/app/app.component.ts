@@ -25,6 +25,10 @@ export class AppComponent implements OnInit {
     selectPokemon(pokemon: Pokemon) {
         alert(`Vous avez cliqué sur ${pokemon.name}`)
     }
+
+    onClick() {
+      console.log("Vous avez cliqué !")
+    }
 }
 // le code de la classe de notre composant
 // contient la logique du composant

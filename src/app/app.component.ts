@@ -15,7 +15,8 @@ import { POKEMONS } from './mock-pokemon'; // ++
 export class AppComponent implements OnInit { 
     // propriété privée, qui renvoit un tableau d'objet de type Pokemon
     private pokemons: Pokemon[];
-    private title: string = "Liste des pokémons"; // ++
+    private title: string = "Liste des pokémons";
+    private value: string = '';
 
     ngOnInit() {
         // étape d'initiliation
@@ -29,6 +30,14 @@ export class AppComponent implements OnInit {
     onClick() {
       console.log("Vous avez cliqué !")
     }
+
+    /* onKey(event: any) {
+      this.value = `Bonjour ${event.target.value}`;
+    } */
+
+  onKey(event: KeyboardEvent) {
+    this.value = `Bonjour ${(<HTMLInputElement>event.target).value}`;
+  }
 }
 // le code de la classe de notre composant
 // contient la logique du composant

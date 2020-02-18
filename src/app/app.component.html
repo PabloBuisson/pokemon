@@ -8,3 +8,7 @@
 
 <button (click)="onClick()">Cliquez ici !</button>
 <!-- (nomEvenement)="nomMethode" -->
+
+<input (keyup)="onKey($event)" /> <!-- $event : objet : l'événement ciblé -->
+
+<p>{{ value }}</p>

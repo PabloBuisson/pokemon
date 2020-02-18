@@ -1,6 +1,7 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 // ElementRef : objet du DOM sur lequel on applique la directive
 // HostListener : lier une méthode de la directive à un event
+// Input : pour préciser la propriété d'entrée
 
 @Directive({
     selector: '[pkmnBorderCard]' // nom de l'attribut qui déclenche la directive
@@ -15,9 +16,13 @@ export class BorderCardDirective {
         this.setHeight(180);
     }
 
+    @Input('pkmnBorderCard') borderColor: string; // ++
+    // @Input('nomDirective) alias;
+
     // déclenché à l'evenement mouseenter
     @HostListener('mouseenter') onMouseEnter() {
-        this.setBorder('#009688');
+        this.setBorder(this.borderColor || '#009688');
+        // 2ème choix si l'utilisateur ne choisit rien
     }
 
     @HostListener('mouseleave') onMouseLeave() {

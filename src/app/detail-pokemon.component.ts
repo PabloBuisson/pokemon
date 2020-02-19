@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 // pour extraire l'id du pokemon à afficher
 // router : redirige l'utilisateur
 import { Pokemon } from './pokemon';
-import { POKEMONS } from './mock-pokemons';
+import { POKEMONS } from './mock-pokemon';
 
 @Component({
     selector: 'detail-pokemon',

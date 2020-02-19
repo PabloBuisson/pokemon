@@ -12,19 +12,9 @@ import { POKEMONS } from './mock-pokemon'; // ++
     templateUrl: './app/app.component.html', // chemin relatif au template
     // par convention, template et composant sont dans le même fichier
 })
-export class AppComponent implements OnInit { 
-    // propriété privée, qui renvoit un tableau d'objet de type Pokemon
-    private pokemons: Pokemon[];
-    private title: string = "Liste des pokémons";
-
-    ngOnInit() {
-        // étape d'initiliation
-        this.pokemons = POKEMONS;
-    }
-
-    selectPokemon(pokemon: Pokemon) {
-        alert(`Vous avez cliqué sur ${pokemon.name}`)
-    }
+export class AppComponent implements OnInit {
+    // n'a plus de logique interne
+    // rôle d'affichage seulement
 }
 // le code de la classe de notre composant
 // contient la logique du composant

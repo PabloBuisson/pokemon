@@ -12,7 +12,7 @@ import { POKEMONS } from './mock-pokemon'; // ++
     templateUrl: './app/app.component.html', // chemin relatif au template
     // par convention, template et composant sont dans le même fichier
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
     // n'a plus de logique interne
     // rôle d'affichage seulement
 }

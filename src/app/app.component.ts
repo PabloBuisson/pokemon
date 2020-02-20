@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 // import { Component } obligatoire
 import { OnInit } from '@angular/core'; // ++ (d'abord les angular core)
 
-import { Pokemon } from './pokemon';
-import { POKEMONS } from './mock-pokemon'; // ++
+import { Pokemon } from './pokemons/pokemon';
+import { POKEMONS } from './pokemons/mock-pokemon'; // ++
 
 @Component({
     selector: 'pokemon-app', // obligatoire : donne un nom au composant

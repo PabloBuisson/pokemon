@@ -9,8 +9,7 @@ import { PokemonsService } from './pokemons.service';
 @Component({
     selector: 'list-pokemon',
     templateUrl: './app/pokemons/list-pokemon.component.html',
-    providers: [PokemonsService] // ++ permet d'accéder au service à l'instanciation
-    // de la classe ListePokemonComponent
+    // providers: [PokemonsService] --
 })
 export class ListPokemonComponent implements OnInit {
 

@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 // import { PokemonTypeColorPipe } from './pokemons/pokemon-type-color.pipe'; --
 import { AppRoutingModule } from './app-routing.module'; 
 import { PageNotFoundComponent } from './page-not-found.component';
-import { PokemonsModule } from './pokemons/pokemons.module'; // ++
+import { PokemonsModule } from './pokemons/pokemons.module';
 
 // permet de déclarer un nouveau module
 @NgModule({

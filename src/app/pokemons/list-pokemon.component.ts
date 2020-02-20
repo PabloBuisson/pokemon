@@ -3,7 +3,7 @@ import { OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // ++
 
 import { Pokemon } from './pokemon';
-import { POKEMONS } from './mock-pokemon';
+import { POKEMONS } from './mock-pokemons';
 
 @Component({
     selector: 'list-pokemon', // ++

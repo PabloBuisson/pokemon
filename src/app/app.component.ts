@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core'; // ++ (d'abord les angular core)
 
 import { Pokemon } from './pokemons/pokemon';
-import { POKEMONS } from './pokemons/mock-pokemon'; // ++
+import { POKEMONS } from './pokemons/mock-pokemons'; // ++
 
 @Component({
     selector: 'pokemon-app', // obligatoire : donne un nom au composant

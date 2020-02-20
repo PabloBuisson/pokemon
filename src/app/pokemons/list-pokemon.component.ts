@@ -7,7 +7,7 @@ import { POKEMONS } from './mock-pokemon';
 
 @Component({
     selector: 'list-pokemon', // ++
-    templateUrl: './app/list-pokemon.component.html', // ++
+    templateUrl: './app/pokemons/list-pokemon.component.html', // ++
 })
 export class ListPokemonComponent implements OnInit {
 

@@ -3,33 +3,40 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 // pour extraire l'id du pokemon à afficher
 // router : redirige l'utilisateur
 import { Pokemon } from './pokemon';
-import { POKEMONS } from './mock-pokemons';
+// import { POKEMONS } from './mock-pokemons'; --
+import { PokemonsService } from './pokemons.service'; // ++
 
 @Component({
     selector: 'detail-pokemon',
-    templateUrl: './app/pokemons/detail-pokemon.component.html'
+    templateUrl: './app/pokemons/detail-pokemon.component.html',
+    providers: [PokemonsService] // ++
 })
 export class DetailPokemonComponent implements OnInit {
 
-    pokemons: Pokemon[] = null; // liste de tous les pokemons
+    // pokemons: Pokemon[] = null; --
     pokemon: Pokemon = null; // le pokemon à afficher
 
-    constructor(private route: ActivatedRoute, private router: Router) { }
+    constructor(
+        private route: ActivatedRoute, 
+        private router: Router,
+        private pokemonsService: PokemonsService) { }
     // je récupère des informations depuis l'url du composant grâce à route
     // j'aurais besoin de rediriger l'utilisateur grâce à Router
 
     ngOnInit(): void {
-        this.pokemons = POKEMONS;
+        // this.pokemons = this.pokemonsService.getPokemons(); --
 
         let id = +this.route.snapshot.paramMap.get('id'); // +permetDeCasterValeurEnNnombre
         // récupère l'id contenue dans l'url
         // propriété snapshot : synchrone (bloque l'éxécution du programme tant
         // que l'id n'est pas récupérée)
-        for (let i = 0; i < this.pokemons.length; i++) {
+        this.pokemon = this.pokemonsService.getPokemon(id);
+
+/*         for (let i = 0; i < this.pokemons.length; i++) {
             if (this.pokemons[i].id == id) {
                 this.pokemon = this.pokemons[i];
             }
-        }
+        } */
     }
 
     goBack(): void {

@@ -31,12 +31,6 @@ export class DetailPokemonComponent implements OnInit {
         // propriété snapshot : synchrone (bloque l'éxécution du programme tant
         // que l'id n'est pas récupérée)
         this.pokemon = this.pokemonsService.getPokemon(id);
-
-/*         for (let i = 0; i < this.pokemons.length; i++) {
-            if (this.pokemons[i].id == id) {
-                this.pokemon = this.pokemons[i];
-            }
-        } */
     }
 
     goBack(): void {
@@ -45,6 +39,11 @@ export class DetailPokemonComponent implements OnInit {
         // url dans un tableau
         // window.history.back(); // même processus, moins fiable
         // car on ne sait pas d'où il vient
+    }
+
+    goEdit(pokemon: Pokemon): void {
+        let link = ['/pokemon/edit', pokemon.id]
+        this.router.navigate(link);
     }
 
 }

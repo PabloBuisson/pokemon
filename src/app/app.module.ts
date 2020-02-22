@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // ++
 
 import { AppComponent } from './app.component';
-// import { DetailPokemonComponent } from './pokemons/detail-pokemon.component'; --
-// import { ListPokemonComponent } from './pokemons/list-pokemon.component'; --
-
-// import { BorderCardDirective } from './pokemons/border-card.directive'; --
-// import { PokemonTypeColorPipe } from './pokemons/pokemon-type-color.pipe'; --
 import { AppRoutingModule } from './app-routing.module'; 
 import { PageNotFoundComponent } from './page-not-found.component';
 import { PokemonsModule } from './pokemons/pokemons.module';
@@ -15,7 +11,8 @@ import { PokemonsModule } from './pokemons/pokemons.module';
 @NgModule({
     imports: [
         BrowserModule, // ordre : modules avant les routes
-        PokemonsModule, // ++
+        HttpClientModule, // ++
+        PokemonsModule,
         AppRoutingModule // ordre détermine l'ordre de déclaration des routes
     ], 
     declarations: [

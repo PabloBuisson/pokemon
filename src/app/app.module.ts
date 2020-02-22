@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // ++
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; // ++
+import { InMemoryDataService } from './in-memory-data.service'; // ++ 
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; 
@@ -12,6 +14,9 @@ import { PokemonsModule } from './pokemons/pokemons.module';
     imports: [
         BrowserModule, // ordre : modules avant les routes
         HttpClientModule, // ++
+        // intercepte les requêtes HTTP et retourne les requêtes simulées du serveur
+        // dataEncapsulation précise le format des données renvoyées par l'API
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false}),
         PokemonsModule,
         AppRoutingModule // ordre détermine l'ordre de déclaration des routes
     ], 

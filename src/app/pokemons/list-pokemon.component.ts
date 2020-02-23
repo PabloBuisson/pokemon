@@ -3,13 +3,11 @@ import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Pokemon } from './pokemon';
-// import { POKEMONS } from './mock-pokemons'; --
 import { PokemonsService } from './pokemons.service';
 
 @Component({
     selector: 'list-pokemon',
-    templateUrl: './app/pokemons/list-pokemon.component.html',
-    // providers: [PokemonsService] --
+    templateUrl: './app/pokemons/list-pokemon.component.html'
 })
 export class ListPokemonComponent implements OnInit {
 
@@ -26,7 +24,10 @@ export class ListPokemonComponent implements OnInit {
 
     ngOnInit() {
         // étape d'initiliation
-        this.pokemons = this.pokemonsService.getPokemons(); // ++
+        this.pokemonsService.getPokemons()
+            .subscribe(pokemons => this.pokemons = pokemons);
+            // valorise la propriété pokemons avec le tableau de pokemons 
+            // contenu dans l'Observable
     }
 
     selectPokemon(pokemon: Pokemon) {

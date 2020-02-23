@@ -30,7 +30,10 @@ export class DetailPokemonComponent implements OnInit {
         // récupère l'id contenue dans l'url
         // propriété snapshot : synchrone (bloque l'éxécution du programme tant
         // que l'id n'est pas récupérée)
-        this.pokemon = this.pokemonsService.getPokemon(id);
+        this.pokemonsService.getPokemon(id)
+            .subscribe(pokemon => this.pokemon = pokemon);
+            // valorise la propriété pokemon avec l'objet Pokemon 
+            // contenu dans l'Observable
     }
 
     goBack(): void {

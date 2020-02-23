@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs'; // ++
-import { catchError, map, tap } from 'rxjs/operators'; // ++
+import { Observable, of } from 'rxjs'; // ++
+// of : opérateur permet de transformer les données passées en paramètres
+// en un Observable
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Pokemon } from './pokemon';
 import { POKEMONS } from './mock-pokemons';
@@ -18,6 +20,24 @@ export class PokemonsService {
     private log(log: string) { // ++
         console.info(log);
         // centralise la gestion des logs de notre service
+    }
+
+    // <T> indique que l'on va typer u type en lui-même
+    // parametre operation : nom de la méthode qui a causé l'erreur
+    // operation par défaut
+    // result : donnée facultative à renvoyer du résultat de l'Observable
+    private handleError<T>(operation='operation', result?: T) {
+        return (error: any): Observable<T> => {
+            console.log(error);
+            console.log(`${operation} failed: ${error.message}`);
+
+            return of(result as T);
+            // renvoie un résultat adapté à la méthode qui a levé l'erreur
+            // renvoie le type attendu par cette méthode
+            // tableau pour getPokemons
+            // Pokemon pour getPokemon
+            // permet de faire fonctionner l'appli même si une erreur est levée
+        }
     }
 
     // retourne un Observable, qui contient un tableau de pokémons

@@ -7,12 +7,13 @@ import { PokemonRoutingModule } from './pokemons-routing.module';
 // CommonModule à importer pour les sous modules (pas module racine)
 import { ListPokemonComponent } from './list-pokemon.component';
 import { DetailPokemonComponent } from './detail-pokemon.component';
+import { PokemonFormComponent } from './pokemon-form.component';
+import { EditPokemonComponent } from './edit-pokemon.component';
+import { PokemonSearchComponent } from './search-pokemon.component'; // ++
+
 import { BorderCardDirective } from './border-card.directive';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { PokemonsService } from './pokemons.service';
-import { PokemonFormComponent } from './pokemon-form.component'; // ++
-import { EditPokemonComponent } from './edit-pokemon.component'; // ++
-
 @NgModule({
     imports: [
         CommonModule, 
@@ -22,8 +23,9 @@ import { EditPokemonComponent } from './edit-pokemon.component'; // ++
     declarations: [
         ListPokemonComponent,
         DetailPokemonComponent,
-        PokemonFormComponent, // ++
-        EditPokemonComponent, // ++
+        PokemonFormComponent, 
+        EditPokemonComponent, 
+        PokemonSearchComponent, // ++
         BorderCardDirective,
         PokemonTypeColorPipe
     ],

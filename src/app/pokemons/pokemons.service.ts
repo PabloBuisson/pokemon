@@ -40,6 +40,20 @@ export class PokemonsService {
         }
     }
 
+    // term : terme de la recherche rentré par l'utilisateur
+    searchPokemons(term: string): Observable<Pokemon[]> {
+        // terme vide renvoie tableau vide
+        if (!term.trim()) {
+            return of([]);
+        }
+
+        // url de l'API
+        return this.http.get<Pokemon[]>(`${this.pokemonUrl}/?name=${term}`).pipe(
+            tap(() => this.log(`found pokemons matching "${term}"`)),
+            catchError(this.handleError<Pokemon[]>('searchPokemons', []))
+        );
+    }
+
     // création d'une méthode de suppresion dans le service
     deletePokemon(pokemon: Pokemon): Observable<Pokemon> {
         const url = `${this.pokemonUrl}/${pokemon.id}`;

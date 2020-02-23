@@ -40,6 +40,19 @@ export class PokemonsService {
         }
     }
 
+    updatePokemon(pokemon: Pokemon): Observable<Pokemon> {
+        const HttpOptions = {
+            headers: new HttpHeaders({'Content-Type': 'application/json'})
+            // déclare une en-tête pour déclarer que la requête sera au format JSON
+        };
+
+        // put(adresse, corps, options)
+        return this.http.put(this.pokemonUrl, pokemon, HttpOptions).pipe(
+            tap(() => this.log(`updated pokemon with id : ${pokemon.id}`)),
+            catchError(this.handleError<any>('updatePokemon'))
+        );
+    }
+
     // retourne un Observable, qui contient un tableau de pokémons
     getPokemons(): Observable<Pokemon[]> {
         // la méthode get de la propriété retourne un Observable de type Pokemon[]

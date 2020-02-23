@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <div class="card">
+            <div class="card-content">
+                <div class="input-field">
+                    <!-- la méthode de liaison keyup appelle la méthode search
+                    et lui envoie la dernière lettre tapée -->
+                    <input #searchBox (keyup)="search(searchBox.value)" placeholder="Rechercher un pokémon" />
+                </div>
+
+                <div class="collection">
+                <!-- le pipe async permet d'afficher le résultat 
+                    que quand l'Observable a trouvé une réponse
+                    pokemon$ car un Observable, un flux -->
+                    <a *ngFor="let pokemon of pokemons$ | async" (click)="gotoDetail(pokemon)" class="collection-item">
+                        {{ pokemon.name }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

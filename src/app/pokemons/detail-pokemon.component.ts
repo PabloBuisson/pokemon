@@ -36,6 +36,12 @@ export class DetailPokemonComponent implements OnInit {
             // contenu dans l'Observable
     }
 
+    // ajout de la méthode pour la lier à la méthode de suppresion du service
+    delete(pokemon: Pokemon): void {
+        this.pokemonsService.deletePokemon(pokemon)
+            .subscribe(() => this.goBack());
+    }
+
     goBack(): void {
         this.router.navigate(['/pokemons']);
         // revient à la page d'accueil

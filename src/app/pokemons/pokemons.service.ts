@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs'; // ++
+import { Observable, of, pipe } from 'rxjs'; // ++
 // of : opérateur permet de transformer les données passées en paramètres
 // en un Observable
 import { catchError, map, tap } from 'rxjs/operators';
@@ -38,6 +38,20 @@ export class PokemonsService {
             // Pokemon pour getPokemon
             // permet de faire fonctionner l'appli même si une erreur est levée
         }
+    }
+
+    // création d'une méthode de suppresion dans le service
+    deletePokemon(pokemon: Pokemon): Observable<Pokemon> {
+        const url = `${this.pokemonUrl}/${pokemon.id}`;
+        const HttpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+            // déclare une en-tête pour déclarer que la requête sera au format JSON
+        };
+
+        return this.http.delete<Pokemon>(url, HttpOptions).pipe(
+            tap(() => this.log(`deleted pokemon with id ${pokemon.id}`)),
+            catchError(this.handleError<Pokemon>('deletePokemon'))
+        );
     }
 
     updatePokemon(pokemon: Pokemon): Observable<Pokemon> {

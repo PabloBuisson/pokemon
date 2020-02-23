@@ -7,9 +7,7 @@ import { PageNotFoundComponent } from './page-not-found.component'; // ++
 
 // routes
 const appRoutes: Routes = [
-    // { path: 'pokemons', component: ListPokemonComponent }, --
-    // { path: 'pokemon/:id', component: DetailPokemonComponent }, --
-    { path: '', redirectTo: 'pokemons', pathMatch: 'full' }, // par défaut
+    { path: '', redirectTo: 'pokemon/all', pathMatch: 'full' }, // par défaut
     { path: '**', component: PageNotFoundComponent} 
     // capture toutes les routes pas interceptées précédemment
     // a mettre en dernier dans le tableau

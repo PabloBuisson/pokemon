@@ -43,7 +43,7 @@ export class DetailPokemonComponent implements OnInit {
     }
 
     goBack(): void {
-        this.router.navigate(['/pokemons']);
+        this.router.navigate(['/pokemon/all']);
         // revient à la page d'accueil
         // url dans un tableau
         // window.history.back(); // même processus, moins fiable

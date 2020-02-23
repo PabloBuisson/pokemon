@@ -10,11 +10,14 @@ import { DetailPokemonComponent } from './detail-pokemon.component';
 import { PokemonFormComponent } from './pokemon-form.component';
 import { EditPokemonComponent } from './edit-pokemon.component';
 import { PokemonSearchComponent } from './search-pokemon.component';
-import { LoaderComponent } from '../loader.component'; // ++
+import { LoaderComponent } from '../loader.component';
 
 import { BorderCardDirective } from './border-card.directive';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { PokemonsService } from './pokemons.service';
+
+import { AuthGuard } from '../auth-guard.service'; // ++
+
 @NgModule({
     imports: [
         CommonModule, 
@@ -27,10 +30,10 @@ import { PokemonsService } from './pokemons.service';
         PokemonFormComponent, 
         EditPokemonComponent, 
         PokemonSearchComponent,
-        LoaderComponent, // ++
+        LoaderComponent,
         BorderCardDirective,
         PokemonTypeColorPipe
     ],
-    providers: [PokemonsService] // déclare les services
+    providers: [PokemonsService, AuthGuard] // ++ déclare les services
 })
 export class PokemonsModule { }

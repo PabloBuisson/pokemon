@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser'
 
 import { Pokemon } from './pokemon';
 import { PokemonsService } from './pokemons.service';
-import { AppComponent } from '../app.component';
 
 @Component({
     selector: 'list-pokemon',
@@ -16,7 +16,7 @@ export class ListPokemonComponent implements OnInit {
     
     constructor(private router: Router, 
         private pokemonsService: PokemonsService,
-        private appComponent: AppComponent) {
+        private titleService: Title) {
         // instance disponible sous forme de propriété privée this.pokemonsService
         // injection de dépendance garantit que l'instance est unique dans l'appli
         // si on l'utilise dans un autre composant, ça sera la même instance
@@ -31,7 +31,7 @@ export class ListPokemonComponent implements OnInit {
             .subscribe(pokemons => this.pokemons = pokemons);
             // valorise la propriété pokemons avec le tableau de pokemons 
             // contenu dans l'Observable
-        this.appComponent.updateTitle("La liste des Pokémons"); // add title
+        this.titleService.setTitle("La liste des Pokémons"); // add title
     }
 
     selectPokemon(pokemon: Pokemon) {

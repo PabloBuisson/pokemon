@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-// import { nom élément } from 'nom paquet source'
-// import { Component } obligatoire
-import { OnInit } from '@angular/core'; // ++ (d'abord les angular core)
-
-import { Pokemon } from './pokemons/pokemon';
-import { POKEMONS } from './pokemons/mock-pokemons'; // ++
+import { Title } from '@angular/platform-browser'; // ++
 
 @Component({
     selector: 'pokemon-app', // obligatoire : donne un nom au composant
@@ -15,6 +10,13 @@ import { POKEMONS } from './pokemons/mock-pokemons'; // ++
 export class AppComponent {
     // n'a plus de logique interne
     // rôle d'affichage seulement
+
+    // rajout du service Title
+    public constructor(private titleService: Title) { }
+
+    public updateTitle(title: string) {
+        this.titleService.setTitle(title);
+    }
 }
 // le code de la classe de notre composant
 // contient la logique du composant

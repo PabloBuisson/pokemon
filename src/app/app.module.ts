@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser'; // ++
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // ++
+import { FormsModule } from '@angular/forms';
 
 import { PokemonsModule } from './pokemons/pokemons.module';
 import { AppRoutingModule } from './app-routing.module'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { LoginRoutingModule } from './login-routing.module'; // ++
+import { LoginRoutingModule } from './login-routing.module';
 
-import { InMemoryDataService } from './in-memory-data.service'; // ++ 
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found.component';
@@ -32,6 +32,7 @@ import { LoginComponent } from './login.component'; // ++
         LoginComponent, // ++
         PageNotFoundComponent
     ],
+    providers: [Title], // fournit le service 'Title' à l'ensemble de l'application  
     bootstrap: [AppComponent] // permet d'identifier le composant racine
     // que Angular appelle au démarrage de l'application
 })

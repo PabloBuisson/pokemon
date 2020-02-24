@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 // pour extraire l'id du pokemon à afficher
 // router : redirige l'utilisateur
 import { Pokemon } from './pokemon';
-// import { POKEMONS } from './mock-pokemons'; --
 import { PokemonsService } from './pokemons.service'; // ++
 
 @Component({
